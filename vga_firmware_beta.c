@@ -1,4 +1,4 @@
-#define F_CPU 10000000UL
+#define F_CPU 20000000UL
  
 #include <avr/io.h>
 #include <util/delay.h>
@@ -37,8 +37,8 @@ int main(void){
     TCCR1A|= 0<<WGM10 | 0<<WGM11;
     TCCR1B|= 1<<WGM12 | 0<<WGM13 | 1<<CS10 | 0<<CS11 | 0<<CS12;   //10Mhz with no prescaler;
  
-    OCR1A = 264;
-    OCR1B = 210;
+    OCR1A = 528;
+    OCR1B = 420;
 
     TCNT1 = 0;  		/* Load TCNT1 */
     
@@ -62,11 +62,11 @@ int main(void){
 
         switch(TCNT1){
             
-            case 200:
+            case 400:
                 PORTA = 0<<0; 
                 break;
             
-            case 242:
+            case 484:
                 PORTA = 0<<7; 
                 break;
         }
